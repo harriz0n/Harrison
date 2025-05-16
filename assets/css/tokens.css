@@ -26,29 +26,34 @@ body {
   font-family: var(--font-body);
   background-color: var(--color-background);
   color: #1a1a1a;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 [data-theme="dark"] body {
   color: #f0f0f0;
 }
 
+/* Headings only set font, not color */
 h1, h2, h3 {
   font-family: var(--font-heading);
 }
 
-/* Utility Classes */
+/* Utility Classes: Text Colors */
 .text-primary { color: var(--color-primary); }
 .text-accent { color: var(--color-accent); }
 .text-muted { color: var(--color-muted); }
 
+/* Utility Classes: Background Colors */
 .bg-primary { background-color: var(--color-primary); }
 .bg-accent { background-color: var(--color-accent); }
 .bg-muted { background-color: var(--color-muted); }
 .bg-surface { background-color: var(--color-surface); }
 .bg-background { background-color: var(--color-background); }
 
+/* Utility Classes: Border Radius */
 .rounded-card { border-radius: var(--radius-card); }
 .rounded-soft { border-radius: var(--radius-soft); }
 
+/* Utility Classes: Borders */
 .border-primary { border-color: var(--color-primary); }
 .border-muted { border-color: var(--color-muted); }
