@@ -8,18 +8,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/tokens.css">
 </head>
-<body class="bg-background">
+<body class="bg-brand-background">
 
   <!-- Navbar -->
-  <header class="flex items-center justify-between px-6 py-4 border-b border-muted">
-    <a href="index.html" class="text-xl font-bold text-primary hover:underline">Harrison Bent</a>
+  <header class="flex items-center justify-between px-6 py-4 border-b border-brand-muted">
+    <a href="index.html" class="text-xl font-bold text-brand-primary hover:underline">Harrison Bent</a>
 
-    <!-- Dark Mode Toggle Switch -->
+    <!-- Dark Mode Toggle -->
     <div class="flex items-center space-x-4">
-      <span class="text-sm text-muted">Dark Mode</span>
+      <span class="text-sm text-brand-muted">Dark Mode</span>
       <label class="relative inline-flex items-center cursor-pointer">
         <input type="checkbox" id="themeToggle" class="sr-only peer">
-        <div class="w-11 h-6 bg-muted rounded-full peer-checked:bg-primary transition-colors"></div>
+        <div class="w-11 h-6 bg-brand-muted rounded-full peer-checked:bg-brand-primary transition-colors"></div>
         <div class="absolute left-1 top-1 bg-white w-4 h-4 rounded-full shadow transition-transform peer-checked:translate-x-5"></div>
       </label>
     </div>
@@ -27,11 +27,11 @@
 
   <!-- Hero Section -->
   <section class="max-w-3xl mx-auto px-6 py-16 text-center">
-    <h1 class="text-5xl font-extrabold text-primary">Exploring Clarity in Complexity</h1>
-    <p class="mt-6 text-xl text-muted leading-relaxed">
+    <h1 class="text-5xl font-extrabold text-brand-primary">Exploring Clarity in Complexity</h1>
+    <p class="mt-6 text-xl text-brand-muted leading-relaxed">
       Mapping systems, stories, and tools to navigate the hidden dynamics of teams, brands, and human experience.
     </p>
-    <p class="mt-10 text-lg text-muted leading-relaxed">
+    <p class="mt-10 text-lg text-brand-muted leading-relaxed">
       This space is my personal workbench — a place to map ideas, sketch tools, and explore clarity in complex systems.
     </p>
   </section>
@@ -40,7 +40,7 @@
     <!-- JS will build portfolio sections here -->
   </div>
 
-  <footer class="py-10 text-center text-muted border-t border-muted">
+  <footer class="py-10 text-center text-brand-muted border-t border-brand-muted">
     &copy; 2025 Harrison Bent. All rights reserved.
   </footer>
 
@@ -58,7 +58,7 @@
           section.className = "space-y-8";
 
           const title = document.createElement('h2');
-          title.className = "text-3xl font-semibold text-center text-primary";
+          title.className = "text-3xl font-semibold text-center text-brand-primary";
           title.innerText = category;
           section.appendChild(title);
 
@@ -68,15 +68,15 @@
           data.filter(item => item.category === category).forEach(project => {
             const card = document.createElement('a');
             card.href = `project-template.html?slug=${project.slug}`;
-            card.className = "bg-surface shadow-lg rounded-card overflow-hidden hover:scale-105 transition-transform block";
+            card.className = "bg-brand-surface shadow-lg rounded-card overflow-hidden hover:scale-105 transition-transform block";
 
             card.innerHTML = `
               <figure class="aspect-video overflow-hidden">
                 <img src="${project.image}" alt="${project.title}" class="object-cover w-full">
               </figure>
               <div class="p-4 text-left">
-                <h3 class="text-xl font-semibold text-primary">${project.title}</h3>
-                <p class="text-muted mt-2">${project.description}</p>
+                <h3 class="text-xl font-semibold text-brand-primary">${project.title}</h3>
+                <p class="text-brand-muted mt-2">${project.description}</p>
               </div>
             `;
 
@@ -89,15 +89,25 @@
       });
   </script>
 
-  <!-- Dark Mode Toggle Script -->
+  <!-- Dark Mode Sticky Toggle -->
   <script>
     const toggle = document.getElementById('themeToggle');
+    const htmlEl = document.documentElement;
+
+    // Load saved theme
+    if (localStorage.getItem('theme') === 'dark') {
+      htmlEl.setAttribute('data-theme', 'dark');
+      toggle.checked = true;
+    }
+
+    // Toggle and persist
     toggle.addEventListener('change', function() {
-      const htmlEl = document.documentElement;
       if (this.checked) {
         htmlEl.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
       } else {
         htmlEl.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
       }
     });
   </script>
