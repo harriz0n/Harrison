@@ -7,15 +7,22 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/tokens.css">
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-  </style>
 </head>
 <body class="bg-white text-gray-900">
 
   <!-- Navbar -->
   <header class="flex items-center justify-between px-6 py-4 border-b border-gray-200">
-    <div class="text-xl font-bold">Harrison Bent</div>
+    <div class="text-xl font-bold text-primary">Harrison Bent</div>
+
+    <!-- Light/Dark Mode Toggle Switch -->
+    <label class="flex items-center cursor-pointer">
+      <div class="relative">
+        <input type="checkbox" id="themeToggle" class="sr-only">
+        <div class="block bg-muted w-14 h-8 rounded-full"></div>
+        <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
+      </div>
+      <span class="ml-3 text-sm text-muted">Dark Mode</span>
+    </label>
   </header>
 
   <!-- Hero Section -->
@@ -37,13 +44,13 @@
     &copy; 2025 Harrison Bent. All rights reserved.
   </footer>
 
+  <!-- Portfolio JSON Loader -->
   <script>
     fetch('portfolio.json')
       .then(response => response.json())
       .then(data => {
         const container = document.getElementById('portfolioSections');
 
-        // Get unique categories
         const categories = [...new Set(data.map(item => item.category))];
 
         categories.forEach(category => {
@@ -81,6 +88,36 @@
         });
       });
   </script>
+
+  <!-- Dark Mode Toggle Script -->
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const dot = document.querySelector('.dot');
+
+    toggle.addEventListener('change', function() {
+      const htmlEl = document.documentElement;
+      if (this.checked) {
+        htmlEl.setAttribute('data-theme', 'dark');
+      } else {
+        htmlEl.removeAttribute('data-theme');
+      }
+    });
+  </script>
+
+  <style>
+    /* Toggle Switch Animation */
+    input:checked + .block {
+      background-color: var(--color-primary);
+    }
+
+    input:checked + .block + .dot {
+      transform: translateX(6rem);
+    }
+
+    .dot {
+      transition: transform 0.3s ease;
+    }
+  </style>
 
 </body>
 </html>
