@@ -1,20 +1,55 @@
 :root {
   --font-body: 'Inter', sans-serif;
   --font-heading: 'Space Grotesk', sans-serif;
+
   --color-primary: #6B5B95;
   --color-accent: #FF6F61;
   --color-muted: #A9A9A9;
   --color-background: #ffffff;
   --color-surface: #f9f9f9;
+
   --radius-card: 1rem;
   --radius-soft: 0.5rem;
 }
 
+/* Base Styles */
 body {
   font-family: var(--font-body);
   background-color: var(--color-background);
+  color: #1a1a1a;
 }
 
 h1, h2, h3 {
   font-family: var(--font-heading);
+}
+
+/* Text Colors */
+.text-primary { color: var(--color-primary); }
+.text-accent { color: var(--color-accent); }
+.text-muted { color: var(--color-muted); }
+
+/* Background Colors */
+.bg-primary { background-color: var(--color-primary); }
+.bg-accent { background-color: var(--color-accent); }
+.bg-muted { background-color: var(--color-muted); }
+.bg-surface { background-color: var(--color-surface); }
+.bg-background { background-color: var(--color-background); }
+
+/* Border Radius Helpers */
+.rounded-card { border-radius: var(--radius-card); }
+.rounded-soft { border-radius: var(--radius-soft); }
+
+/* Optional Border Helpers */
+.border-primary { border-color: var(--color-primary); }
+.border-muted { border-color: var(--color-muted); }
+
+/* Buttons (Custom Style Example) */
+.btn-primary {
+  @apply px-6 py-2 rounded-soft bg-primary text-white hover:opacity-90;
+}
+.btn-accent {
+  @apply px-6 py-2 rounded-soft bg-accent text-white hover:opacity-90;
+}
+.btn-outline-primary {
+  @apply px-6 py-2 rounded-soft border border-primary text-primary hover:bg-primary hover:text-white;
 }
