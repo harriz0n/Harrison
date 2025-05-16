@@ -1,1 +1,20 @@
+:root {
+  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --color-primary: #6B5B95;
+  --color-accent: #FF6F61;
+  --color-muted: #A9A9A9;
+  --color-background: #ffffff;
+  --color-surface: #f9f9f9;
+  --radius-card: 1rem;
+  --radius-soft: 0.5rem;
+}
 
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+}
