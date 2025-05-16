@@ -2,11 +2,11 @@
   --font-body: 'Inter', sans-serif;
   --font-heading: 'Space Grotesk', sans-serif;
 
-  --color-primary: #6B5B95;
-  --color-accent: #FF6F61;
-  --color-muted: #A9A9A9;
-  --color-background: #ffffff;
-  --color-surface: #f9f9f9;
+  --color-primary: #222222;  /* Almost black, soft */
+  --color-accent: #FF6F61;   /* Warm accent */
+  --color-muted: #666666;    /* Muted gray for secondary text */
+  --color-background: #fdfdfd; /* Off-white background */
+  --color-surface: #f7f7f7;    /* Light surface for cards/sections */
 
   --radius-card: 1rem;
   --radius-soft: 0.5rem;
@@ -14,26 +14,26 @@
 
 /* Dark Mode Variables */
 [data-theme="dark"] {
-  --color-primary: #9B8FC3;
-  --color-accent: #FF9671;
-  --color-muted: #7A7A7A;
-  --color-background: #1a1a1a;
-  --color-surface: #2a2a2a;
+  --color-primary: #eeeeee;  /* Near-white text */
+  --color-accent: #FF9671;   /* Warm accent for dark mode */
+  --color-muted: #999999;    /* Muted gray for dark mode text */
+  --color-background: #121212; /* Deep dark background */
+  --color-surface: #1e1e1e;   /* Slightly lifted dark surface */
 }
 
 /* Base Styles */
 body {
   font-family: var(--font-body);
   background-color: var(--color-background);
-  color: #1a1a1a;
+  color: var(--color-primary);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 [data-theme="dark"] body {
-  color: #f0f0f0;
+  /* No need for extra color, handled by variables */
 }
 
-/* Headings only set font, not color */
+/* Headings get heading font but no forced color */
 h1, h2, h3 {
   font-family: var(--font-heading);
 }
