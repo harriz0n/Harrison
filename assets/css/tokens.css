@@ -2,11 +2,11 @@
   --font-body: 'Inter', sans-serif;
   --font-heading: 'Space Grotesk', sans-serif;
 
-  --color-primary: #222222;  /* Almost black, soft */
+  --color-primary: #222222;  /* Near black */
   --color-accent: #FF6F61;   /* Warm accent */
-  --color-muted: #666666;    /* Muted gray for secondary text */
-  --color-background: #fdfdfd; /* Off-white background */
-  --color-surface: #f7f7f7;    /* Light surface for cards/sections */
+  --color-muted: #666666;    /* Subtle gray for secondary text */
+  --color-background: #fdfdfd; /* Off-white */
+  --color-surface: #f7f7f7;    /* Slightly darker for cards */
 
   --radius-card: 1rem;
   --radius-soft: 0.5rem;
@@ -14,11 +14,11 @@
 
 /* Dark Mode Variables */
 [data-theme="dark"] {
-  --color-primary: #eeeeee;  /* Near-white text */
-  --color-accent: #FF9671;   /* Warm accent for dark mode */
-  --color-muted: #999999;    /* Muted gray for dark mode text */
-  --color-background: #121212; /* Deep dark background */
-  --color-surface: #1e1e1e;   /* Slightly lifted dark surface */
+  --color-primary: #eeeeee;  /* Near white */
+  --color-accent: #FF9671;
+  --color-muted: #999999;
+  --color-background: #121212;
+  --color-surface: #1e1e1e;
 }
 
 /* Base Styles */
@@ -29,31 +29,26 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-[data-theme="dark"] body {
-  /* No need for extra color, handled by variables */
-}
-
-/* Headings get heading font but no forced color */
 h1, h2, h3 {
   font-family: var(--font-heading);
 }
 
 /* Utility Classes: Text Colors */
-.text-primary { color: var(--color-primary); }
-.text-accent { color: var(--color-accent); }
-.text-muted { color: var(--color-muted); }
+.text-brand-primary { color: var(--color-primary); }
+.text-brand-accent { color: var(--color-accent); }
+.text-brand-muted { color: var(--color-muted); }
 
 /* Utility Classes: Background Colors */
-.bg-primary { background-color: var(--color-primary); }
-.bg-accent { background-color: var(--color-accent); }
-.bg-muted { background-color: var(--color-muted); }
-.bg-surface { background-color: var(--color-surface); }
-.bg-background { background-color: var(--color-background); }
+.bg-brand-primary { background-color: var(--color-primary); }
+.bg-brand-accent { background-color: var(--color-accent); }
+.bg-brand-muted { background-color: var(--color-muted); }
+.bg-brand-surface { background-color: var(--color-surface); }
+.bg-brand-background { background-color: var(--color-background); }
+
+/* Utility Classes: Border Colors */
+.border-brand-primary { border-color: var(--color-primary); }
+.border-brand-muted { border-color: var(--color-muted); }
 
 /* Utility Classes: Border Radius */
 .rounded-card { border-radius: var(--radius-card); }
 .rounded-soft { border-radius: var(--radius-soft); }
-
-/* Utility Classes: Borders */
-.border-primary { border-color: var(--color-primary); }
-.border-muted { border-color: var(--color-muted); }
