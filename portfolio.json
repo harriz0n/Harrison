@@ -1,0 +1,92 @@
+[
+  {
+    "slug": "systems-mapping",
+    "title": "Systems Mapping",
+    "category": "Mapping",
+    "description": "Visualizing friction points in organizational dynamics.",
+    "image": "https://media.giphy.com/media/7E8lI6TkLrvvAcPXso/giphy.gif",
+    "obstacle": "Teams struggled to identify hidden misalignments within internal processes.",
+    "idea": "I used mapping exercises to surface unseen relational tensions.",
+    "reflection": "Revealed how visualizing friction points helps align teams with purpose."
+  },
+  {
+    "slug": "customer-journey-mapping",
+    "title": "Customer Journey Mapping",
+    "category": "Mapping",
+    "description": "Making the invisible touchpoints visible across customer experiences.",
+    "image": "https://media.giphy.com/media/xUPGcyi4YxcZp8dWg0/giphy.gif",
+    "obstacle": "Fragmented customer experiences created confusion and friction.",
+    "idea": "Mapped end-to-end journeys to identify pain points and align efforts.",
+    "reflection": "Visualizing journeys helped uncover misalignments and streamline experiences."
+  },
+  {
+    "slug": "cultural-alignment",
+    "title": "Cultural Alignment",
+    "category": "Mapping",
+    "description": "Bridging gaps between teams and company values through co-created maps.",
+    "image": "https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif",
+    "obstacle": "Company values weren't translating into daily team actions.",
+    "idea": "Facilitated workshops to co-create alignment maps and surface shared goals.",
+    "reflection": "Increased team engagement by connecting values with tangible workflows."
+  },
+  {
+    "slug": "storytelling-motion",
+    "title": "Storytelling in Motion",
+    "category": "Storytelling",
+    "description": "Humanizing complexity through narrative-driven video projects.",
+    "image": "https://media.giphy.com/media/3o7qE1YN7aBOFPRw8E/giphy.gif",
+    "obstacle": "Abstract ideas struggled to emotionally connect with audiences.",
+    "idea": "Created narrative videos that bridged the gap between concept and people.",
+    "reflection": "Storytelling served as a clarity amplifier for complex topics."
+  },
+  {
+    "slug": "visual-storyboards",
+    "title": "Visual Storyboards",
+    "category": "Storytelling",
+    "description": "Bringing abstract strategies to life through relatable visual narratives.",
+    "image": "https://media.giphy.com/media/5GoVLqeAOo6PK/giphy.gif",
+    "obstacle": "Strategic plans lacked tangible, actionable connection points.",
+    "idea": "Developed visual storyboards to make abstract strategies relatable and actionable.",
+    "reflection": "Storyboards helped teams align around a shared understanding of strategy."
+  },
+  {
+    "slug": "strategy-sketches",
+    "title": "Strategy Sketches",
+    "category": "Storytelling",
+    "description": "Quick, iterative diagrams to surface assumptions and provoke clarity.",
+    "image": "https://media.giphy.com/media/l41lYCDgxP6OFBruE/giphy.gif",
+    "obstacle": "Overly complex strategies failed to resonate with team members.",
+    "idea": "Used rapid sketching to simplify and communicate key strategic points.",
+    "reflection": "Sketches fostered collaborative clarity and helped prioritize actions."
+  },
+  {
+    "slug": "ai-amplifier",
+    "title": "AI as Amplifier",
+    "category": "AI Tools",
+    "description": "Prototyping clarity tools powered by AI to surface hidden insights.",
+    "image": "https://media.giphy.com/media/fAnEC88LccN7a/giphy.gif",
+    "obstacle": "Information overload made key relationships invisible to teams.",
+    "idea": "Developed AI-driven prototypes to highlight unseen patterns and connections.",
+    "reflection": "AI amplified human sense-making, supporting better decision-making processes."
+  },
+  {
+    "slug": "ai-concept-lab",
+    "title": "AI Concept Lab",
+    "category": "AI Tools",
+    "description": "Exploring AI-driven prototypes to support collaborative clarity.",
+    "image": "https://media.giphy.com/media/3ohs7KViF3cQEZUTbi/giphy.gif",
+    "obstacle": "Teams were hesitant to explore AI due to lack of practical examples.",
+    "idea": "Developed low-risk prototypes to experiment with AI augmentations in workflows.",
+    "reflection": "Hands-on prototypes reduced fears and opened space for AI experimentation."
+  },
+  {
+    "slug": "service-blueprints",
+    "title": "Service Blueprints",
+    "category": "AI Tools",
+    "description": "Visualizing backstage systems and dependencies to streamline service delivery.",
+    "image": "https://media.giphy.com/media/l0Exk8EUzSLsrErEQ/giphy.gif",
+    "obstacle": "Teams lacked visibility into the backstage processes behind service experiences.",
+    "idea": "Mapped internal service blueprints to clarify roles and reduce silos.",
+    "reflection": "Blueprints exposed critical gaps, enabling smoother internal collaboration."
+  }
+]
