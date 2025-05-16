@@ -8,18 +8,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/tokens.css">
 </head>
-<body class="bg-background text-primary">
+<body class="bg-brand-background">
 
   <!-- Navbar -->
-  <header class="flex items-center justify-between px-6 py-4 border-b border-muted">
-    <a href="index.html" class="text-xl font-bold text-primary hover:underline">Harrison Bent</a>
+  <header class="flex items-center justify-between px-6 py-4 border-b border-brand-muted">
+    <a href="index.html" class="text-xl font-bold text-brand-primary hover:underline">Harrison Bent</a>
 
-    <!-- Dark Mode Toggle Switch -->
+    <!-- Dark Mode Toggle -->
     <div class="flex items-center space-x-4">
-      <span class="text-sm text-muted">Dark Mode</span>
+      <span class="text-sm text-brand-muted">Dark Mode</span>
       <label class="relative inline-flex items-center cursor-pointer">
         <input type="checkbox" id="themeToggle" class="sr-only peer">
-        <div class="w-11 h-6 bg-muted rounded-full peer-checked:bg-primary transition-colors"></div>
+        <div class="w-11 h-6 bg-brand-muted rounded-full peer-checked:bg-brand-primary transition-colors"></div>
         <div class="absolute left-1 top-1 bg-white w-4 h-4 rounded-full shadow transition-transform peer-checked:translate-x-5"></div>
       </label>
     </div>
@@ -27,49 +27,32 @@
 
   <!-- Project Content -->
   <main class="max-w-3xl mx-auto px-6 py-16 space-y-10">
+    <h1 class="text-4xl font-extrabold text-brand-primary">[Project Title]</h1>
+    <p class="text-brand-muted text-lg category">Category: [Project Category]</p>
 
-    <h1 class="text-4xl font-extrabold text-primary">[Project Title]</h1>
-    <p class="text-muted text-lg category">Category: [Project Category]</p>
-
-    <!-- Project Image / Video -->
-    <div class="aspect-video bg-surface rounded-card shadow-lg overflow-hidden">
+    <div class="aspect-video bg-brand-surface rounded-card shadow-lg overflow-hidden">
       <img src="" alt="Project Visual" class="project-image object-cover w-full h-full">
     </div>
 
-    <!-- Dynamic Sections -->
     <section>
-      <h2 class="text-2xl font-semibold text-primary mb-4">The Obstacle</h2>
-      <p class="text-muted obstacle">[Obstacle content]</p>
+      <h2 class="text-2xl font-semibold text-brand-primary mb-4">The Obstacle</h2>
+      <p class="text-brand-muted obstacle">[Obstacle Content]</p>
     </section>
 
     <section>
-      <h2 class="text-2xl font-semibold text-primary mb-4">The Idea</h2>
-      <p class="text-muted idea">[Idea content]</p>
+      <h2 class="text-2xl font-semibold text-brand-primary mb-4">The Idea</h2>
+      <p class="text-brand-muted idea">[Idea Content]</p>
     </section>
 
     <section>
-      <h2 class="text-2xl font-semibold text-primary mb-4">Reflection</h2>
-      <p class="text-muted reflection">[Reflection content]</p>
+      <h2 class="text-2xl font-semibold text-brand-primary mb-4">Reflection</h2>
+      <p class="text-brand-muted reflection">[Reflection Content]</p>
     </section>
-
   </main>
 
-  <footer class="py-10 text-center text-muted border-t border-muted">
+  <footer class="py-10 text-center text-brand-muted border-t border-brand-muted">
     &copy; 2025 Harrison Bent. All rights reserved.
   </footer>
-
-  <!-- Dark Mode Toggle Script -->
-  <script>
-    const toggle = document.getElementById('themeToggle');
-    toggle.addEventListener('change', function() {
-      const htmlEl = document.documentElement;
-      if (this.checked) {
-        htmlEl.setAttribute('data-theme', 'dark');
-      } else {
-        htmlEl.removeAttribute('data-theme');
-      }
-    });
-  </script>
 
   <!-- Dynamic Project Loader -->
   <script>
@@ -90,9 +73,32 @@
           document.querySelector('.idea').innerText = project.idea;
           document.querySelector('.reflection').innerText = project.reflection;
         } else {
-          document.body.innerHTML = '<div class="text-center py-20 text-muted">Project not found.</div>';
+          document.body.innerHTML = '<div class="text-center py-20 text-brand-muted">Project not found.</div>';
         }
       });
+  </script>
+
+  <!-- Dark Mode Sticky Toggle -->
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const htmlEl = document.documentElement;
+
+    // Load saved theme
+    if (localStorage.getItem('theme') === 'dark') {
+      htmlEl.setAttribute('data-theme', 'dark');
+      toggle.checked = true;
+    }
+
+    // Toggle and persist
+    toggle.addEventListener('change', function() {
+      if (this.checked) {
+        htmlEl.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        htmlEl.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      }
+    });
   </script>
 
 </body>
