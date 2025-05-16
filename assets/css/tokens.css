@@ -12,6 +12,15 @@
   --radius-soft: 0.5rem;
 }
 
+/* Dark Mode Variables */
+[data-theme="dark"] {
+  --color-primary: #9B8FC3;
+  --color-accent: #FF9671;
+  --color-muted: #7A7A7A;
+  --color-background: #1a1a1a;
+  --color-surface: #2a2a2a;
+}
+
 /* Base Styles */
 body {
   font-family: var(--font-body);
@@ -19,37 +28,27 @@ body {
   color: #1a1a1a;
 }
 
+[data-theme="dark"] body {
+  color: #f0f0f0;
+}
+
 h1, h2, h3 {
   font-family: var(--font-heading);
 }
 
-/* Text Colors */
+/* Utility Classes */
 .text-primary { color: var(--color-primary); }
 .text-accent { color: var(--color-accent); }
 .text-muted { color: var(--color-muted); }
 
-/* Background Colors */
 .bg-primary { background-color: var(--color-primary); }
 .bg-accent { background-color: var(--color-accent); }
 .bg-muted { background-color: var(--color-muted); }
 .bg-surface { background-color: var(--color-surface); }
 .bg-background { background-color: var(--color-background); }
 
-/* Border Radius Helpers */
 .rounded-card { border-radius: var(--radius-card); }
 .rounded-soft { border-radius: var(--radius-soft); }
 
-/* Optional Border Helpers */
 .border-primary { border-color: var(--color-primary); }
 .border-muted { border-color: var(--color-muted); }
-
-/* Buttons (Custom Style Example) */
-.btn-primary {
-  @apply px-6 py-2 rounded-soft bg-primary text-white hover:opacity-90;
-}
-.btn-accent {
-  @apply px-6 py-2 rounded-soft bg-accent text-white hover:opacity-90;
-}
-.btn-outline-primary {
-  @apply px-6 py-2 rounded-soft border border-primary text-primary hover:bg-primary hover:text-white;
-}
