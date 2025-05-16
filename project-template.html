@@ -3,67 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Name | Harrison Bent</title>
+  <title>Project | Harrison Bent</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-  </style>
+  <link rel="stylesheet" href="assets/css/tokens.css">
 </head>
-<body class="bg-white text-gray-900">
+<body class="bg-background text-primary">
 
   <!-- Navbar -->
-  <header class="flex items-center justify-between px-6 py-4 border-b border-gray-200">
-    <div class="text-xl font-bold">Harrison Bent</div>
-    <a href="portfolio.html" class="text-gray-600 text-sm hover:underline">Back to Portfolio</a>
+  <header class="flex items-center justify-between px-6 py-4 border-b border-muted">
+    <a href="index.html" class="text-xl font-bold text-primary hover:underline">Harrison Bent</a>
+
+    <!-- Dark Mode Toggle Switch -->
+    <div class="flex items-center space-x-4">
+      <span class="text-sm text-muted">Dark Mode</span>
+      <label class="relative inline-flex items-center cursor-pointer">
+        <input type="checkbox" id="themeToggle" class="sr-only peer">
+        <div class="w-11 h-6 bg-muted rounded-full peer-checked:bg-primary transition-colors"></div>
+        <div class="absolute left-1 top-1 bg-white w-4 h-4 rounded-full shadow transition-transform peer-checked:translate-x-5"></div>
+      </label>
+    </div>
   </header>
 
-  <!-- Project Hero Section -->
-  <section class="max-w-3xl mx-auto px-6 py-16 text-center">
-    <h1 class="text-5xl font-extrabold leading-tight">[Project Name]</h1>
-    <p class="mt-4 text-lg text-gray-600">A reflection on navigating [friction point / theme].</p>
-  </section>
+  <!-- Project Content -->
+  <main class="max-w-3xl mx-auto px-6 py-16 space-y-10">
 
-  <!-- Project Visual -->
-  <div class="max-w-5xl mx-auto px-6 mb-16">
-    <img src="https://media.giphy.com/media/7E8lI6TkLrvvAcPXso/giphy.gif" alt="Project Visual" class="rounded-xl shadow-lg w-full object-cover">
-  </div>
+    <h1 class="text-4xl font-extrabold text-primary">[Project Title]</h1>
+    <p class="text-muted text-lg category">Category: [Project Category]</p>
 
-  <!-- Case Study Content -->
-  <section class="max-w-3xl mx-auto px-6 space-y-16 pb-24">
-
-    <!-- The Obstacle -->
-    <div>
-      <h2 class="text-2xl font-semibold mb-4">The Obstacle</h2>
-      <p class="text-gray-600 leading-relaxed">
-        This section describes the friction. Where did people struggle? What complexity was at play? Here you define the human-centered problem you explored.
-      </p>
+    <!-- Project Image / Video -->
+    <div class="aspect-video bg-surface rounded-card shadow-lg overflow-hidden">
+      <img src="" alt="Project Visual" class="project-image object-cover w-full h-full">
     </div>
 
-    <!-- The Idea -->
-    <div>
-      <h2 class="text-2xl font-semibold mb-4">The Idea</h2>
-      <p class="text-gray-600 leading-relaxed">
-        How did you approach the obstacle? Explain your thought process, sketches, maps, prototypes — this is where you narrate the exploration, not just the solution.
-      </p>
-    </div>
+    <!-- Dynamic Sections -->
+    <section>
+      <h2 class="text-2xl font-semibold text-primary mb-4">The Obstacle</h2>
+      <p class="text-muted obstacle">[Obstacle content]</p>
+    </section>
 
-    <!-- Reflections -->
-    <div>
-      <h2 class="text-2xl font-semibold mb-4">Reflections</h2>
-      <p class="text-gray-600 leading-relaxed">
-        What did you discover through this process? Any unexpected patterns, insights, or questions? What would you do differently next time? Share your takeaways here.
-      </p>
-    </div>
+    <section>
+      <h2 class="text-2xl font-semibold text-primary mb-4">The Idea</h2>
+      <p class="text-muted idea">[Idea content]</p>
+    </section>
 
-  </section>
+    <section>
+      <h2 class="text-2xl font-semibold text-primary mb-4">Reflection</h2>
+      <p class="text-muted reflection">[Reflection content]</p>
+    </section>
 
-  <div class="border-t border-gray-200 my-16"></div>
+  </main>
 
-  <!-- Footer -->
-  <footer class="py-10 text-center text-gray-500">
+  <footer class="py-10 text-center text-muted border-t border-muted">
     &copy; 2025 Harrison Bent. All rights reserved.
   </footer>
+
+  <!-- Dark Mode Toggle Script -->
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    toggle.addEventListener('change', function() {
+      const htmlEl = document.documentElement;
+      if (this.checked) {
+        htmlEl.setAttribute('data-theme', 'dark');
+      } else {
+        htmlEl.removeAttribute('data-theme');
+      }
+    });
+  </script>
+
+  <!-- Dynamic Project Loader -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get('slug');
+
+    fetch('portfolio.json')
+      .then(response => response.json())
+      .then(data => {
+        const project = data.find(item => item.slug === slug);
+
+        if (project) {
+          document.title = `${project.title} | Harrison Bent`;
+          document.querySelector('h1').innerText = project.title;
+          document.querySelector('.category').innerText = `Category: ${project.category}`;
+          document.querySelector('.project-image').src = project.image;
+          document.querySelector('.obstacle').innerText = project.obstacle;
+          document.querySelector('.idea').innerText = project.idea;
+          document.querySelector('.reflection').innerText = project.reflection;
+        } else {
+          document.body.innerHTML = '<div class="text-center py-20 text-muted">Project not found.</div>';
+        }
+      });
+  </script>
 
 </body>
 </html>
